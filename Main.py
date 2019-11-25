@@ -1,2 +1,0 @@
-#Autor del proyecto
-#Ruben
