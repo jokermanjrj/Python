@@ -9,16 +9,17 @@ import sys
 #######################################
 #Funciones de Acciones de los usuarios#
 #######################################
-def Identificarse():
+def identificarse():
     nombre=input("Nombre : ")
     contraseña=input("Contraseña : ")
 
-del ver
 
-def Salir():
+def listar():
+    print("Ver todos los productos")
+
+
+def salir():
     sys.exit()
-
-
 
 
 
@@ -31,13 +32,14 @@ print("Menu de usuario anónimo\n"
       "3 : Salir de la aplicacion")
 opcion=int(input("Opción : "))
 
+
 #Menu que comprueba la opcion introducida y llama al metodo correspondiente
 if opcion == 1:
-    print("Ideentifiquese");
+    identificarse()
 elif opcion == 2:
-    print("Ver todos los productos");
-elif opcion ==3:
-    Salir()
+    listar()
+elif opcion == 3:
+    salir()
 
 ############################
 #Menu usuario Identificados#
