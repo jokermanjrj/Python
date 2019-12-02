@@ -8,29 +8,33 @@ import sys
 #######################################
 #Funciones de Acciones de los usuarios#
 #######################################
+
+
 def identificarse():
     nombre=input("Nombre : ")
     contraseña=input("Contraseña : ")
-
     #Comprobamos el si el nombre y la contraseña existe y si es admin
     contador = 1
     #Empieza en no logeado por defecto ni en usuario ni en administrado
-
     while contador < len(usuarios)+1:
         if usuarios.get(contador)[0] == nombre and usuarios.get(contador)[2] == contraseña:
+            usuario = contador
             if usuarios.get(contador)[4] == 'false':
-                #Si a pasado el logueo de usuario cambiamos la variable login a true
+                #Saber si es admin o no
                 print("Usuario normal logueado correctamente\n")
-                menu_registrado()
+                menu_registrado(usuario)
             elif usuarios.get(contador)[4] == 'true':
                 print("Usuario administrador logueado correctamente\n")
-                menu_admin()
+                menu_admin(usuarios)
         contador = contador + 1
+
 
 #########################
 #Menu usuario Registrado#
 #########################
-def menu_registrado():
+
+
+def menu_registrado(i):
     print('Bienvenido señor\n')
     print("Menu de usuario anónimo\n"
           "1 : Modificar tus Datos\n"
@@ -47,7 +51,20 @@ def menu_registrado():
     opcion = int(input("Opción : "))
 
     if opcion == 1:
-        print()
+        print(usuarios[i][5])
+    if opcion == 2:
+        contador = 0
+        while contador < len(usuarios[i][5]):
+            print("Usuario recomendado : ", usuarios[i][5][contador])
+            recomendado = usuarios[i][5][contador]
+
+            contador = contador + 1
+
+    if opcion == 4:
+        for keys,values in productos.items():
+            print("Producto : ", values[1])
+            print("Descripcion : ", values[2])
+            print("Usuario : ", values[3],"\n")
 
 
 def menu_admin():
@@ -72,7 +89,7 @@ def salir():
 
 
 usuarios = {1: ['ruben', 'martinez', 'admin', '20', 'true', [1, 2]],
-            2: ['ivan', 'clemente', 'admin', '20', 'false', [1]]
+            2: ['ivan', 'clemente', 'admin', '20', 'false', [1, 2]]
             }
 
 #Diccionario Productos
