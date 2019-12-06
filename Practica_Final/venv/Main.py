@@ -11,8 +11,10 @@ import sys
 
 
 def identificarse():
-    nombre=input("Nombre : ")
-    contraseña=input("Contraseña : ")
+    nombre="ivan"
+    #input("Nombre : ")
+    contraseña="admin"
+    #input("Contraseña : ")
     #Comprobamos el si el nombre y la contraseña existe y si es admin
     contador = 1
     #Empieza en no logeado por defecto ni en usuario ni en administrado
@@ -54,21 +56,37 @@ def menu_registrado(i):
         print(usuarios[i][5])
     if opcion == 2:
         contador = 0
+        print("Tus usuarios recomendados son :  ")
+        #Lee el largo de la lista de recomendados de tu usuario
         while contador < len(usuarios[i][5]):
-            print("Usuario recomendado : ", usuarios[i][5][contador])
+            #Guarda uno a uno el numero de usuario recomendado y coje su correspondiente
+            #en el diccionario de usuarios
             recomendado = usuarios[i][5][contador]
+            print(usuarios[recomendado][0])
 
             contador = contador + 1
 
     if opcion == 4:
-        for keys,values in productos.items():
-            print("Producto : ", values[1])
-            print("Descripcion : ", values[2])
-            print("Usuario : ", values[3],"\n")
+        contador = 1
+        i = 0
+        while contador < len(productos) + 1:
+            print("Nombre : ", productos.get(contador)[1])
+            print("Descripcion : ", productos.get(contador)[2], "\n")
+            contador = contador + 1
 
+    if opcion == 5:
+        contador = 0
+        # Lee el largo de la lista de recomendados de tu usuario
+        while contador < len(usuarios[i][5]):
+            # Guarda uno a uno el numero de usuario recomendado y coje su correspondiente
+            # en el diccionario de usuarios
+            recomendado = usuarios[i][5][contador]
+            print(usuarios[recomendado][0])
+
+            contador = contador + 1
 
 def menu_admin():
-    print('Bienvenido esclavo')
+    print('Bienvenido administrador')
 
 
 def listar():
